@@ -1,0 +1,1 @@
+MEMORY = [0] * 65536  # Initially empty
