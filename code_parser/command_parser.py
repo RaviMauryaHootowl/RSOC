@@ -103,5 +103,9 @@ def parse_jump(self, line):
     arguments = get_arguments_from_command(line)
     if len(arguments) != 1:
         throw_error("Invalid Syntax")
-    jump_tag = arguments[1]
+    jump_tag = arguments[0]
     self.execute_jump(jump_tag)
+
+def parse_skip(self, line):
+    arguments = get_arguments_from_command(line)
+    self.execute_skip()

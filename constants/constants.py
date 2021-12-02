@@ -1,6 +1,6 @@
 from enum import Enum
 commands_list = ["SET", "ADD", "SUB", "MUL", "DIV", "INR", "DCR", "SHOW",
-                "IFG", "IFL", "IFE", "IFN", "JUMP"]
+                "IFG", "IFL", "IFE", "IFN", "JUMP", "SKIP"]
 REGEX_SEP_COMMAND = r'[\n \t]'
 NOTHING = ''
 

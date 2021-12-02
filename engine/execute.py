@@ -64,3 +64,6 @@ def execute_ifn(self, operand_1, operand_2, jump_tag):
 
 def execute_jump(self, jump_tag):
     self.line_num = self.tag_lines[jump_tag] - 1
+
+def execute_skip(self):
+    pass

@@ -39,3 +39,5 @@ def match_pattern(self, line):
         self.parse_ifn(line)
     elif command_type == "JUMP":
         self.parse_jump(line)
+    elif command_type == "SKIP":
+        self.parse_skip(line)

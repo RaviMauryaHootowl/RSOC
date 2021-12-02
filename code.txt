@@ -1,4 +1,7 @@
-SET M(200H), 20
-SET M(300H), 30
-ADD M(200H), M(300H)
-SHOW A
+SET A, 80
+SET B, 60
+IFG A, B, elsepart
+SHOW B
+JUMP endif
+SHOW A : elsepart
+SKIP : endif
