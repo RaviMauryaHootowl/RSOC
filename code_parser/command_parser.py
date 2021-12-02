@@ -1,6 +1,8 @@
 from utilities.error import throw_error
 from utilities.helper import get_arguments_from_command
 
+## Parse functions to parse out arguments token and pass it to execute stage
+
 def parse_set(self, line):
     arguments = get_arguments_from_command(line)
     # print(arguments)

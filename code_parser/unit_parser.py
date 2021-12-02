@@ -1,6 +1,7 @@
 from constants.constants import UNIT_TYPE
 from utilities.error import throw_error
 
+# Parses a unit argument of data (data, memory, register)
 def parse_unit(self, unit):
     unit_obj = {"unit": unit}
     if unit[0] == 'M':

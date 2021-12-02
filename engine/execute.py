@@ -1,6 +1,7 @@
 from engine.io import set_data_to
 from constants.constants import REG_A
 
+## Execute functions to perform an action based on command type
 
 def execute_set(self, dest, source):
     data_to_set = self.get_data_from(source)
