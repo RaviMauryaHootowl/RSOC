@@ -1,7 +1,10 @@
-SET A, 80
-SET B, 60
-IFG A, B, elsepart
+SET B, 0
+SET C, 1
 SHOW B
-JUMP endif
-SHOW A : elsepart
-SKIP : endif
+~ this is a comment
+SHOW C : looptag
+ADD B, C
+~ Yes really it's a comment
+SET B, C
+SET C, A
+IFG 200, C, looptag

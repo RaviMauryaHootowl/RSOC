@@ -7,11 +7,10 @@ class Engine:
     from storage.memory import MEMORY
     from storage.registers import REGISTERS
     def __init__(self, filename):
-        self.filename = filename
         with open(filename, "r") as file:
             self.code = file.readlines()
         for index, line in enumerate(self.code):
-            if ':' in line:
+            if ':' in line and line[0] != '~':
                 self.tag_lines[remove_extra(line.split(':')[-1])] = index+1
                 self.code[index] = line.split(':')[0]
         
