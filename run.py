@@ -1,20 +1,23 @@
+from flask import Flask, request
 from utilities.helper import remove_extra
 
+app = Flask(__name__)
 class Engine:
     line_num = 1
     code = []
     tag_lines = {}
+    output = ""
     from storage.memory import MEMORY
     from storage.registers import REGISTERS
-    def __init__(self, filename):
-        with open(filename, "r") as file:
-            self.code = file.readlines()
+    def __init__(self, file):
+        self.code = file.split('\n')
         for index, line in enumerate(self.code):
             if ':' in line and line[0] != '~':
                 self.tag_lines[remove_extra(line.split(':')[-1])] = index+1
                 self.code[index] = line.split(':')[0]
         
     def run(self):
+        self.output = ""
         while self.line_num <= len(self.code):
             self.match_command(self.code[self.line_num-1])
             self.line_num += 1
@@ -30,6 +33,15 @@ class Engine:
 
     from engine.io import set_data_to, get_data_from
 
+@app.route('/run', methods=['POST'])
+def run():
+    try:
+        code = request.get_json()['code']
+        engine = Engine(code)
+        engine.run()
+        return {"status": "done", "output": engine.output}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
 if __name__ == '__main__':
-    engine = Engine("code.txt")
-    engine.run()
+    app.run(debug=True)

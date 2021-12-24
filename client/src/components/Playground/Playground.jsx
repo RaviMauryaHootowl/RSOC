@@ -13,7 +13,6 @@ const PlaygroundContainer = styled.div`
 `;
 
 const CodeWindow = styled.div`
-    /* background-color: red; */
     flex: 3;
     padding-right: 1rem;
 `;
@@ -22,15 +21,37 @@ const OutputWindow = styled.div`
     background-color: #2c2c2c;
     border-radius: 8px;
     flex: 2;
+    padding: 12px;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        background: #2e2e2e;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #575757;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background: #787878;
+    }
 `;
 
-const Playground = () => {
+const OutputText = styled.span`
+    color: white;
+    font-size: 2rem;
+    white-space: pre-wrap;
+`
+
+const Playground = ({codeValue, setCodeValue, outputValue}) => {
     return (
         <PlaygroundContainer>
             <CodeWindow>
-                <RsocEditor />
+                <RsocEditor codeValue={codeValue} setCodeValue={setCodeValue}/>
             </CodeWindow>
-            <OutputWindow></OutputWindow>
+            <OutputWindow>
+                <OutputText>{`${outputValue}`}</OutputText>
+            </OutputWindow>
         </PlaygroundContainer>
     );
 }

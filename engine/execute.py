@@ -29,7 +29,8 @@ def execute_div(self, operand_1, operand_2):
 
 def execute_show(self, source):
     data_from_source = self.get_data_from(source)
-    print(data_from_source)
+    self.output += f'{data_from_source}\n'
+    # print(data_from_source)
 
 def execute_inr(self, operand):
     operand_val = self.get_data_from(operand)

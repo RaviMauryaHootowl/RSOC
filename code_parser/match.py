@@ -3,7 +3,8 @@ from utilities.error import throw_error
 
 # checks if it is a valid command and skip out comment lines
 def match_command(self, line):
-    if line[0] == '~': return
+    line = line.strip()
+    if line == '' or line[0] == '~': return
     command_type = line.split()[0]
     if command_type in commands_list:
         self.match_pattern(line)

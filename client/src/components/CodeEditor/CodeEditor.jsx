@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import Logo from '../Logo/Logo';
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
 import Playground from '../Playground/Playground';
+import axios from 'axios';
 
 const CodeEditorContainer = styled.div`
 	background-color: #252525;
@@ -43,23 +44,47 @@ const CodeRunBtn = styled.button`
 
 const CodeEditorPlayground = styled.div`
 	width: 100%;
-    flex: 1;	
+    flex: 1;
+	overflow-y: hidden;
 	padding: 12px;
 `;
 
+const APIURL = 'run';
+
 const CodeEditor = () => {
+
+	const [codeValue, setCodeValue] = useState("");
+	const [outputValue, setOutputValue] = useState("");
+
+	useEffect(() => {
+		console.log(codeValue);
+	}, [codeValue]);
+
+	const runCode = async () => {
+		const data = {
+			"code": codeValue
+		}
+		const res = await axios.post(APIURL, data);
+		const output = res.data;
+		console.log(output);
+		if(output['status'] == 'done'){
+			setOutputValue(output['output']);
+		}else{
+			alert(`Error: ${output['message']}`);
+		}
+	}
+
     return (
-		// <Button>Hello World</Button>
         <CodeEditorContainer>
 			<CodeEditorHeader>
 				<Logo />
-				<CodeRunBtn>
+				<CodeRunBtn onClick={() => {runCode();}}>
 					<PlayArrowRoundedIcon />
 					Run
 				</CodeRunBtn>
 			</CodeEditorHeader>
 			<CodeEditorPlayground>
-				<Playground />
+				<Playground codeValue={codeValue} setCodeValue={setCodeValue} outputValue={outputValue} />
 			</CodeEditorPlayground>
         </CodeEditorContainer>
     );
