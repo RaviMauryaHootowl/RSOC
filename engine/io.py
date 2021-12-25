@@ -19,4 +19,4 @@ def set_data_to(self, dest, data):
     elif dest["unit_type"] == UNIT_TYPE.MEM:
         self.MEMORY[hex_to_int(get_address(dest["unit"]))] = data
     else:
-        throw_error("Invalid Syntax")
+        throw_error(f"Line:{self.line_num}, Invalid Syntax")

@@ -11,5 +11,5 @@ def parse_unit(self, unit):
     elif len(unit) == 1:
         unit_obj["unit_type"] = UNIT_TYPE.REG
     else:
-        throw_error("Syntax Error")
+        throw_error(f"Line:{self.line_num}, Invalid Syntax")
     return unit_obj

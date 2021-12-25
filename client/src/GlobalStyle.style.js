@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
     }
     .ace_scrollbar::-webkit-scrollbar-thumb {
         background: #575757;
+        border-radius: 10px;
     }
     .ace_scrollbar::-webkit-scrollbar-thumb:hover {
         background: #787878;

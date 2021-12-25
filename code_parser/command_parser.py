@@ -7,7 +7,7 @@ def parse_set(self, line):
     arguments = get_arguments_from_command(line)
     # print(arguments)
     if len(arguments) != 2:
-        throw_error("Invalid Syntax")
+        throw_error(f"Line:{self.line_num}, Incorrect number of arguments")
     dest_object = self.parse_unit(arguments[0])
     source_object = self.parse_unit(arguments[1])
     self.execute_set(dest_object, source_object)
@@ -16,7 +16,7 @@ def parse_set(self, line):
 def parse_add(self, line):
     arguments = get_arguments_from_command(line)
     if len(arguments) != 2:
-        throw_error("Invalid Syntax")
+        throw_error(f"Line:{self.line_num}, Incorrect number of arguments")
     operand_1 = self.parse_unit(arguments[0])
     operand_2 = self.parse_unit(arguments[1])
     self.execute_add(operand_1, operand_2)
@@ -24,7 +24,7 @@ def parse_add(self, line):
 def parse_sub(self, line):
     arguments = get_arguments_from_command(line)
     if len(arguments) != 2:
-        throw_error("Invalid Syntax")
+        throw_error(f"Line:{self.line_num}, Incorrect number of arguments")
     operand_1 = self.parse_unit(arguments[0])
     operand_2 = self.parse_unit(arguments[1])
     self.execute_sub(operand_1, operand_2)
@@ -32,7 +32,7 @@ def parse_sub(self, line):
 def parse_mul(self, line):
     arguments = get_arguments_from_command(line)
     if len(arguments) != 2:
-        throw_error("Invalid Syntax")
+        throw_error(f"Line:{self.line_num}, Incorrect number of arguments")
     operand_1 = self.parse_unit(arguments[0])
     operand_2 = self.parse_unit(arguments[1])
     self.execute_mul(operand_1, operand_2)
@@ -40,7 +40,7 @@ def parse_mul(self, line):
 def parse_div(self, line):
     arguments = get_arguments_from_command(line)
     if len(arguments) != 2:
-        throw_error("Invalid Syntax")
+        throw_error(f"Line:{self.line_num}, Incorrect number of arguments")
     operand_1 = self.parse_unit(arguments[0])
     operand_2 = self.parse_unit(arguments[1])
     self.execute_div(operand_1, operand_2)
@@ -54,21 +54,21 @@ def parse_show(self, line):
 def parse_inr(self, line):
     arguments = get_arguments_from_command(line)
     if len(arguments) != 1:
-        throw_error("Invalid Syntax")
+        throw_error(f"Line:{self.line_num}, Incorrect number of arguments")
     operand = self.parse_unit(arguments[0])
     self.execute_inr(operand)
 
 def parse_dcr(self, line):
     arguments = get_arguments_from_command(line)
     if len(arguments) != 1:
-        throw_error("Invalid Syntax")
+        throw_error(f"Line:{self.line_num}, Incorrect number of arguments")
     operand = self.parse_unit(arguments[0])
     self.execute_dcr(operand)
 
 def parse_ifg(self, line):
     arguments = get_arguments_from_command(line)
     if len(arguments) != 3:
-        throw_error("Invalid Syntax")
+        throw_error(f"Line:{self.line_num}, Incorrect number of arguments")
     first_object = self.parse_unit(arguments[0])
     second_object = self.parse_unit(arguments[1])
     jump_tag = arguments[2]
@@ -77,7 +77,7 @@ def parse_ifg(self, line):
 def parse_ifl(self, line):
     arguments = get_arguments_from_command(line)
     if len(arguments) != 3:
-        throw_error("Invalid Syntax")
+        throw_error(f"Line:{self.line_num}, Incorrect number of arguments")
     first_object = self.parse_unit(arguments[0])
     second_object = self.parse_unit(arguments[1])
     jump_tag = arguments[2]
@@ -86,7 +86,7 @@ def parse_ifl(self, line):
 def parse_ife(self, line):
     arguments = get_arguments_from_command(line)
     if len(arguments) != 3:
-        throw_error("Invalid Syntax")
+        throw_error(f"Line:{self.line_num}, Incorrect number of arguments")
     first_object = self.parse_unit(arguments[0])
     second_object = self.parse_unit(arguments[1])
     jump_tag = arguments[2]
@@ -95,7 +95,7 @@ def parse_ife(self, line):
 def parse_ifn(self, line):
     arguments = get_arguments_from_command(line)
     if len(arguments) != 3:
-        throw_error("Invalid Syntax")
+        throw_error(f"Line:{self.line_num}, Incorrect number of arguments")
     first_object = self.parse_unit(arguments[0])
     second_object = self.parse_unit(arguments[1])
     jump_tag = arguments[2]
@@ -104,7 +104,7 @@ def parse_ifn(self, line):
 def parse_jump(self, line):
     arguments = get_arguments_from_command(line)
     if len(arguments) != 1:
-        throw_error("Invalid Syntax")
+        throw_error(f"Line:{self.line_num}, Incorrect number of arguments")
     jump_tag = arguments[0]
     self.execute_jump(jump_tag)
 

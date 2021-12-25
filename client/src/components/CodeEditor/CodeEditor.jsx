@@ -55,6 +55,8 @@ const CodeEditor = () => {
 
 	const [codeValue, setCodeValue] = useState("");
 	const [outputValue, setOutputValue] = useState("");
+	const [isError, setIsError] = useState(false);
+	const [errorMessage, setErrorMessage] = useState("");
 
 	useEffect(() => {
 		console.log(codeValue);
@@ -69,8 +71,12 @@ const CodeEditor = () => {
 		console.log(output);
 		if(output['status'] == 'done'){
 			setOutputValue(output['output']);
+			setIsError(false);
+			setErrorMessage("");
 		}else{
-			alert(`Error: ${output['message']}`);
+			setOutputValue("Oops!");
+			setIsError(true);
+			setErrorMessage(`Error: ${output['message']}`);
 		}
 	}
 
@@ -84,7 +90,7 @@ const CodeEditor = () => {
 				</CodeRunBtn>
 			</CodeEditorHeader>
 			<CodeEditorPlayground>
-				<Playground codeValue={codeValue} setCodeValue={setCodeValue} outputValue={outputValue} />
+				<Playground codeValue={codeValue} setCodeValue={setCodeValue} outputValue={outputValue} isError={isError} errorMessage={errorMessage} setIsError={setIsError} />
 			</CodeEditorPlayground>
         </CodeEditorContainer>
     );

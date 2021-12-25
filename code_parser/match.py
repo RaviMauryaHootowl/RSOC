@@ -8,7 +8,7 @@ def match_command(self, line):
     command_type = line.split()[0]
     if command_type in commands_list:
         self.match_pattern(line)
-    else: throw_error("Invalid Syntax")
+    else: throw_error(f"Line:{self.line_num}, Invalid Syntax")
 
 # maps the command type to the correct parser function
 def match_pattern(self, line):
