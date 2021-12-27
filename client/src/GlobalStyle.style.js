@@ -9,6 +9,9 @@ const GlobalStyle = createGlobalStyle`
     body{
         background-color: #d8d8d8;
     }
+    .ace_editor{
+        font-family: 'Cascadia Code', sans-serif;
+    }
     .ace_scrollbar::-webkit-scrollbar {
         width: 10px;
     }
@@ -21,6 +24,18 @@ const GlobalStyle = createGlobalStyle`
     }
     .ace_scrollbar::-webkit-scrollbar-thumb:hover {
         background: #787878;
+    }
+    .ace_comments{
+        color: #808080;
+    }
+    .ace_commands{
+        color: #f58540;
+    }
+    .ace_numbers{
+        color: #47a3ff;
+    }
+    .ace_tags{
+        color: #5fff59;
     }
 `;
 
