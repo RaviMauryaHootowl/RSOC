@@ -49,7 +49,7 @@ const CodeEditorPlayground = styled.div`
 	padding: 12px;
 `;
 
-const APIURL = 'run';
+const APIURL = 'api/run';
 
 const CodeEditor = () => {
 

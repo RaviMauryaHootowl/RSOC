@@ -1,7 +1,11 @@
 from flask import Flask, request
+from flask.helpers import send_from_directory
+from flask_cors import CORS, cross_origin
 from utilities.helper import remove_extra
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='client/build', static_url_path='')
+CORS(app)
+
 class Engine:
     line_num = 1
     code = []
@@ -33,7 +37,8 @@ class Engine:
 
     from engine.io import set_data_to, get_data_from
 
-@app.route('/run', methods=['POST'])
+@app.route('/api/run', methods=['POST'])
+@cross_origin()
 def run():
     try:
         code = request.get_json()['code']
@@ -43,5 +48,10 @@ def run():
     except Exception as e:
         return {"status": "error", "message": str(e)}
 
+@app.route('/')
+@cross_origin()
+def serve():
+    return send_from_directory(app.static_folder, 'index.html')
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
