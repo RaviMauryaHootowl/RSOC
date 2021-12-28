@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import Logo from '../Logo/Logo';
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
+import BookmarkAddRoundedIcon from '@mui/icons-material/BookmarkAddRounded';
 import Playground from '../Playground/Playground';
 import axios from 'axios';
 
@@ -21,9 +22,29 @@ const CodeEditorHeader = styled.div`
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    justify-content: space-between;
     color: white;
 	font-family: 'Readex Pro', sans-serif;
+`;
+
+const LogoContainer = styled.div`
+	flex: 1;
+	display: flex;
+	align-items: center;
+`;
+
+const TutorialBtn = styled.button`
+	background-color: transparent;
+	color: white;
+	outline: none;
+	border: none;
+	font-size: 22px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    cursor: pointer;
+	&:hover{
+		background-color: rgb(73, 73, 73);
+	}
 `;
 
 const CodeRunBtn = styled.button`
@@ -49,9 +70,17 @@ const CodeEditorPlayground = styled.div`
 	padding: 12px;
 `;
 
+
+const RunIcon = styled(PlayArrowRoundedIcon)`
+	margin-right: 10px;	
+`;
+const TutorialIcon = styled(BookmarkAddRoundedIcon)`
+	margin-right: 10px;
+`;
+
 const APIURL = 'api/run';
 
-const CodeEditor = () => {
+const CodeEditor = ({setIsTutOpen}) => {
 
 	const [codeValue, setCodeValue] = useState("");
 	const [outputValue, setOutputValue] = useState("");
@@ -83,9 +112,15 @@ const CodeEditor = () => {
     return (
         <CodeEditorContainer>
 			<CodeEditorHeader>
-				<Logo />
+				<LogoContainer>
+					<Logo />
+				</LogoContainer>
+				<TutorialBtn onClick={() => {setIsTutOpen(true);}}>
+					<TutorialIcon />
+					Tutorial
+				</TutorialBtn>
 				<CodeRunBtn onClick={() => {runCode();}}>
-					<PlayArrowRoundedIcon />
+					<RunIcon />
 					Run
 				</CodeRunBtn>
 			</CodeEditorHeader>
