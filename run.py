@@ -14,6 +14,10 @@ class Engine:
     from storage.memory import MEMORY
     from storage.registers import REGISTERS
     def __init__(self, file):
+        self.tag_lines.clear()
+        self.code.clear()
+        self.line_num = 1
+        self.output = ""
         self.code = file.split('\n')
         for index, line in enumerate(self.code):
             if ':' in line and line[0] != '~':
