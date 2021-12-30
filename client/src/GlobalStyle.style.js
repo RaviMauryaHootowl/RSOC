@@ -10,10 +10,14 @@ const GlobalStyle = createGlobalStyle`
         background-color: #d8d8d8;
     }
     .ace_editor{
-        font-family: 'Cascadia Code', sans-serif;
+        font-family: monospace;
     }
     .ace_mobile-menu{
         display:none !important;
+    }
+    .ace_placeholder{
+        font-family: monospace;
+        font-style: italic;
     }
     .ace_scrollbar::-webkit-scrollbar {
         width: 10px;

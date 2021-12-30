@@ -7,16 +7,17 @@ const AppLogo = styled.div`
     display: flex;
     align-items: center;
     padding: 0 24px;
+    @media(max-width: 600px){
+		font-size: 16px;
+	}
 `;
 
 const LogoImage = styled.img`
     height: 36px;
     margin-right: 12px;
-`;
-
-const LogoText = styled.span`
-	@media(max-width: 600px){
-		display: none;
+    @media(max-width: 600px){
+		height: 28px;
+        margin-right: 10px;
 	}
 `;
 
@@ -24,7 +25,7 @@ const Logo = () => {
     return (
         <AppLogo>
             <LogoImage src={RSOCLogo} />
-            <LogoText>R. S. O. C.</LogoText>
+            R. S. O. C.
         </AppLogo>
     );
 }

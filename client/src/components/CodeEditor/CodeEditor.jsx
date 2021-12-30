@@ -45,6 +45,9 @@ const TutorialBtn = styled.button`
 	&:hover{
 		background-color: rgb(73, 73, 73);
 	}
+	@media(max-width: 600px){
+		padding: 0 12px;
+	}
 	
 `;
 
@@ -67,6 +70,9 @@ const CodeRunBtn = styled.button`
     cursor: pointer;
 	&:hover{
 		background-color: rgb(73, 73, 73);
+	}
+	@media(max-width: 600px){
+		padding: 0 12px;
 	}
 `;
 

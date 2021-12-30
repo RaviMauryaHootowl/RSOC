@@ -40,6 +40,7 @@ const RsocEditor = ({ codeValue, setCodeValue }) => {
             theme="monokai"
             editorProps={{ $blockScrolling: true }}
             showPrintMargin={false}
+            placeholder="Type your code here"
             setOptions={{
                 fontFamily: "monospace"
             }}
