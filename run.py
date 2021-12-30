@@ -1,3 +1,4 @@
+from constants.constants import MAX_OUTPUT_LIMIT
 from flask import Flask, request
 from flask.helpers import send_from_directory
 from flask_cors import CORS, cross_origin
@@ -11,13 +12,12 @@ class Engine:
     code = []
     tag_lines = {}
     output = ""
+    output_lines = 0
     from storage.memory import MEMORY
     from storage.registers import REGISTERS
     def __init__(self, file):
         self.tag_lines.clear()
-        self.code.clear()
-        self.line_num = 1
-        self.output = ""
+        self.REGISTERS = self.REGISTERS.fromkeys(self.REGISTERS, 0)
         self.code = file.split('\n')
         for index, line in enumerate(self.code):
             if ':' in line and line[0] != '~':
@@ -27,6 +27,9 @@ class Engine:
     def run(self):
         self.output = ""
         while self.line_num <= len(self.code):
+            if self.output_lines > MAX_OUTPUT_LIMIT:
+                self.output += '...\n'
+                return
             self.match_command(self.code[self.line_num-1])
             self.line_num += 1
 
@@ -48,7 +51,9 @@ def run():
         code = request.get_json()['code']
         engine = Engine(code)
         engine.run()
-        return {"status": "done", "output": engine.output}
+        output = engine.output
+        del engine
+        return {"status": "done", "output": output}
     except Exception as e:
         return {"status": "error", "message": str(e)}
 

@@ -4,7 +4,6 @@ SHOW B
 ~ this is a comment
 SHOW C : looptag
 ADD B, C
-~ Yes really it's a comment
 SET B, C
 SET C, A
-IFG 200, C, looptag
+IFG 400, C, looptag

@@ -30,15 +30,16 @@ def execute_div(self, operand_1, operand_2):
 def execute_show(self, source):
     data_from_source = self.get_data_from(source)
     self.output += f'{data_from_source}\n'
+    self.output_lines += 1
     # print(data_from_source)
 
 def execute_inr(self, operand):
     operand_val = self.get_data_from(operand)
-    set_data_to(operand, operand_val+1)
+    self.set_data_to(operand, operand_val+1)
 
 def execute_dcr(self, operand):
     operand_val = self.get_data_from(operand)
-    set_data_to(operand, operand_val-1)
+    self.set_data_to(operand, operand_val-1)
 
 def execute_ifg(self, operand_1, operand_2, jump_tag):
     operand_1_val = self.get_data_from(operand_1)

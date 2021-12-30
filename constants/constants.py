@@ -12,3 +12,5 @@ class UNIT_TYPE(Enum):
     REG = 3
 
 REG_A = {"unit_type" : UNIT_TYPE.REG, "unit": "A"}
+
+MAX_OUTPUT_LIMIT = 10000

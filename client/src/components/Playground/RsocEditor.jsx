@@ -32,7 +32,7 @@ return (
         editorProps={{ $blockScrolling: true }}
         showPrintMargin={false}
         setOptions={{
-            fontFamily: "Cascadia Code"
+            fontFamily: "monospace"
         }}
         fontSize={26}
         value={codeValue}

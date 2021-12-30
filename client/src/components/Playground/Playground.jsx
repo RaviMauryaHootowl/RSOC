@@ -52,7 +52,7 @@ const OutputText = styled.span`
     color: white;
     font-size: 2rem;
     white-space: pre-wrap;
-    font-family: 'Cascadia Code', sans-serif;
+    font-family: monospace;
 `;
 
 const Playground = ({codeValue, setCodeValue, outputValue, isError, setIsError, errorMessage}) => {
