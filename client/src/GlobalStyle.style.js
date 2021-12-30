@@ -6,6 +6,12 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         box-sizing: border-box;
     }
+    *:focus {
+        -webkit-tap-highlight-color: transparent;
+        outline: none;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+    }
     body{
         background-color: #d8d8d8;
     }
