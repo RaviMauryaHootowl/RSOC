@@ -12,6 +12,9 @@ const GlobalStyle = createGlobalStyle`
     .ace_editor{
         font-family: 'Cascadia Code', sans-serif;
     }
+    .ace_mobile-menu{
+        display:none !important;
+    }
     .ace_scrollbar::-webkit-scrollbar {
         width: 10px;
     }
