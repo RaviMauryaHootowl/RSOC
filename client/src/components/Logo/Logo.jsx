@@ -14,11 +14,17 @@ const LogoImage = styled.img`
     margin-right: 12px;
 `;
 
+const LogoText = styled.span`
+	@media(max-width: 600px){
+		display: none;
+	}
+`;
+
 const Logo = () => {
     return (
         <AppLogo>
             <LogoImage src={RSOCLogo} />
-            R. S. O. C.
+            <LogoText>R. S. O. C.</LogoText>
         </AppLogo>
     );
 }

@@ -13,6 +13,7 @@ const HomeContainer = styled.div`
 `; 
 
 const TutorialSidePanel = styled(animated.div)`
+    z-index: 10;
     background-color: #313131;
     position: absolute;
     width: 40%;
@@ -21,6 +22,12 @@ const TutorialSidePanel = styled(animated.div)`
     bottom: 0;
     box-shadow: #35353540 -2px 0px 20px;
     border-left: 6px solid #5c5c5c;
+    @media(max-width: 600px){
+        width: 80%;
+	}
+    @media(max-width: 500px){
+        width: 90%;
+	}
 `;
 
 

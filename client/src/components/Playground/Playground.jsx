@@ -12,11 +12,19 @@ const PlaygroundContainer = styled.div`
     display: flex;
     flex-direction: row;
     align-items: stretch;
+    @media(max-width: 600px){
+        flex-direction: column;
+	}
 `;
 
 const CodeWindow = styled.div`
     flex: 3;
     padding-right: 1rem;
+    @media(max-width: 600px){
+        padding-right: 0;
+        flex: 3;
+        padding-bottom: 1rem;
+	}
 `;
 
 const OutputWindow = styled.div`
@@ -26,7 +34,10 @@ const OutputWindow = styled.div`
     display: flex;
     flex-direction: column;
     padding: 12px;
-    
+    overflow: auto;
+    @media(max-width: 600px){
+        flex: 2;
+	}
 `;
 
 const OutputValueWindow = styled.div`
@@ -53,6 +64,9 @@ const OutputText = styled.span`
     font-size: 2rem;
     white-space: pre-wrap;
     font-family: monospace;
+    @media(max-width: 600px){
+        font-size: 1.2rem;
+	}
 `;
 
 const Playground = ({codeValue, setCodeValue, outputValue, isError, setIsError, errorMessage}) => {

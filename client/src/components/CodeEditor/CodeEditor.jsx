@@ -45,6 +45,13 @@ const TutorialBtn = styled.button`
 	&:hover{
 		background-color: rgb(73, 73, 73);
 	}
+	
+`;
+
+const TutorialBtnText = styled.span`
+	@media(max-width: 600px){
+		display: none;
+	}
 `;
 
 const CodeRunBtn = styled.button`
@@ -60,6 +67,12 @@ const CodeRunBtn = styled.button`
     cursor: pointer;
 	&:hover{
 		background-color: rgb(73, 73, 73);
+	}
+`;
+
+const CodeRunBtnText = styled.span`
+	@media(max-width: 600px){
+		display: none;
 	}
 `;
 
@@ -117,11 +130,11 @@ const CodeEditor = ({setIsTutOpen}) => {
 				</LogoContainer>
 				<TutorialBtn onClick={() => {setIsTutOpen(true);}}>
 					<TutorialIcon />
-					Tutorial
+					<TutorialBtnText>Tutorial</TutorialBtnText>
 				</TutorialBtn>
 				<CodeRunBtn onClick={() => {runCode();}}>
 					<RunIcon />
-					Run
+					<CodeRunBtnText>Run</CodeRunBtnText>
 				</CodeRunBtn>
 			</CodeEditorHeader>
 			<CodeEditorPlayground>
