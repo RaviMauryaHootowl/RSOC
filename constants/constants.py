@@ -10,6 +10,7 @@ class UNIT_TYPE(Enum):
     DATA = 1
     MEM = 2
     REG = 3
+    PTR = 4
 
 REG_A = {"unit_type" : UNIT_TYPE.REG, "unit": "A"}
 

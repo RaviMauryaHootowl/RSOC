@@ -99,7 +99,18 @@ IFL: If Less
 IFE: If Equal  
 IFN: If Not Equal  
 
-8. Comments: These are represented by ~ (tilde) symbol which is also the logo of R.S.O.C.  
+8. Pointers: X(A) is used to access the memory location whose memory address is in register A.
+Eg. 
+```
+    SET A, 100H
+    SET X(A), 20
+    ~ This is print 256 as it's decimal value of 100H
+    SHOW A
+    ~ This will print 20
+    SHOW X(A)
+```
+
+9. Comments: These are represented by ~ (tilde) symbol which is also the logo of R.S.O.C.  
 Eg.  
 ```
     SET A, 20

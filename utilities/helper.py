@@ -21,6 +21,8 @@ def get_address(add_src):
 
 # Converts hex value to int
 def hex_to_int(hex_val):
+    if hex_val[-1] == 'H':
+        hex_val = hex_val[:-1]
     return int(hex_val, 16)
 
 # Returns a list of arguments from a command

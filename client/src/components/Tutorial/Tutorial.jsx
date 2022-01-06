@@ -154,12 +154,86 @@ const Tutorial = ({setIsTutOpen}) => {
             />
             <InstructionSet 
                 title={
-                    <>7. Comments: These are represented by ~ (tilde) symbol which is also the logo of R.S.O.C.</>
+                    <>7. Pointers: X(A) is used to access the memory location whose memory address is in register A.<br/>
+                    Eg.</>
+                }
+                code={
+                    <>
+                    SET A, 100H<br/>
+                    SET X(A), 20<br/>
+                    ~ This is print 256 as it's decimal value of 100H<br/>
+                    SHOW A<br/>
+                    ~ This will print 20<br/>
+                    SHOW X(A)<br/>
+                    </>
+                }
+            />
+            <InstructionSet 
+                title={
+                    <>8. Comments: These are represented by ~ (tilde) symbol which is also the logo of R.S.O.C.</>
                 }
                 code={
                     <>
                     SET A, 20<br/>
                     ~ This is a comment line<br/>
+                    SHOW A
+                    </>
+                }
+            />
+            <VerticalSpace/>
+            <SubHeaderText>Sample Programs</SubHeaderText>
+            <InstructionSet 
+                title={
+                    <>Add 2 numbers</>
+                }
+                code={
+                    <>
+                    SET A, 20<br/>
+                    SET B, 30<br/>
+                    ADD A, B<br/>
+                    SHOW A
+                    </>
+                }
+            />
+
+            <InstructionSet 
+                title={
+                    <>Fibonacci series</>
+                }
+                code={
+                    <>
+                    SET B, 0<br/>
+                    SET C, 1<br/>
+                    SHOW B<br/>
+                    SHOW C : LOOPTAG<br/>
+                    ADD B, C<br/>
+                    SET B, C<br/>
+                    SET C, A<br/>
+                    IFG 200, C, LOOPTAG
+                    </>
+                }
+            />
+
+            <InstructionSet 
+                title={
+                    <>Add an array of 10 numbers</>
+                }
+                code={
+                    <>
+                    ~ SET 10 MEMORY LOCATIONS FROM 1 TO 10<br/>
+                    SET B, 200H<br/>
+                    SET C, 1<br/>
+                    SET X(B), C : HERE<br/>
+                    INR C<br/>
+                    INR B<br/>
+                    IFL C, 11, HERE<br/>
+                    DCR B<br/>
+                    <br/>
+                    ~ ADDING THE VALUES<br/>
+                    ADD A, X(B) : BACK<br/>
+                    DCR B<br/>
+                    DCR C<br/>
+                    IFG C, 1, BACK<br/>
                     SHOW A
                     </>
                 }

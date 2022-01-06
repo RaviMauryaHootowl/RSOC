@@ -1,9 +1,15 @@
-SET B, 0
+~ SET 10 MEMORY LOCATIONS FROM 1 TO 10
+SET B, 200H
 SET C, 1
-SHOW B
-~ this is a comment
-SHOW C : looptag
-ADD B, C
-SET B, C
-SET C, A
-IFG 400, C, looptag
+SET X(B), C : HERE
+INR C
+INR B
+IFL C, 11, HERE
+DCR B
+
+~ ADDING THE VALUES
+ADD A, X(B) : BACK
+DCR B
+DCR C
+IFG C, 1, BACK
+SHOW A

@@ -10,6 +10,7 @@ const HomeContainer = styled.div`
     background-color: #d8d8d8;
     padding: 20px;
     position: relative;
+    overflow: hidden;
 `; 
 
 const TutorialSidePanel = styled(animated.div)`
